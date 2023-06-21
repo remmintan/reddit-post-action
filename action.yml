@@ -1,0 +1,24 @@
+name: 'Post on Reddit'
+description: 'Simple JS action to post on Reddit'
+branding:
+  color: 'orange'
+  icon: 'reddit'
+inputs:
+  app-id: 
+    description: 'Reddit app ID. Get it from https://www.reddit.com/prefs/apps'
+    required: true
+  app-secret:
+    description: 'Reddit app secret. Get it from https://www.reddit.com/prefs/apps'
+    required: true
+  username:
+    description: 'Reddit username'
+    required: true
+  password:
+    description: 'Reddit password'
+    required: true
+  post-title:
+    description: 'Title of the post'
+    required: true
+  post-text:
+    description: 'Text of the post'
+    required: true
