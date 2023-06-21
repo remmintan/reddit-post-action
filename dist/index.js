@@ -4984,6 +4984,9 @@ async function main() {
     const appSecret = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('app-secret', {required: true});
     const username = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('username', {required: true});
     const password = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('password', {required: true});
+
+    const postTitle = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('post-title', {required: true});
+    const postText = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('post-text', {required: true});
     
     const reddit = new (reddit__WEBPACK_IMPORTED_MODULE_2___default())({
         username,
@@ -5000,8 +5003,8 @@ async function main() {
         {
             sr: 'u_Remmintan',
             kind: 'self',
-            title: 'Hello World',
-            text: 'This is a test post',
+            title: postTitle,
+            text: postText,
         }
     )
     _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('Done!');

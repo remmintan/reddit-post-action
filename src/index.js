@@ -7,6 +7,9 @@ async function main() {
     const appSecret = actions.getInput('app-secret', {required: true});
     const username = actions.getInput('username', {required: true});
     const password = actions.getInput('password', {required: true});
+
+    const postTitle = actions.getInput('post-title', {required: true});
+    const postText = actions.getInput('post-text', {required: true});
     
     const reddit = new Reddit({
         username,
@@ -23,8 +26,8 @@ async function main() {
         {
             sr: 'u_Remmintan',
             kind: 'self',
-            title: 'Hello World',
-            text: 'This is a test post',
+            title: postTitle,
+            text: postText,
         }
     )
     actions.info('Done!');
