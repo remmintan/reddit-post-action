@@ -1,12 +1,13 @@
 import 'dotenv/config';
-import actions from '@actions/core';
+import * as actions from '@actions/core';
 import Reddit from 'reddit';
 
 async function main() {
-    const appId = actions.getInput('appId');
-    const username = actions.getInput('username');
-    const password = actions.getInput('password');
-    const appSecret = actions.getInput('appSecret');
+    const appId = actions.getInput('app-id', {required: true});
+    const appSecret = actions.getInput('app-secret', {required: true});
+    const username = actions.getInput('username', {required: true});
+    const password = actions.getInput('password', {required: true});
+    
     const reddit = new Reddit({
         username,
         password,
@@ -20,7 +21,7 @@ async function main() {
     await reddit.post(
         '/api/submit',
         {
-            sr: 'u/Remmintan',
+            sr: 'u_Remmintan',
             kind: 'self',
             title: 'Hello World',
             text: 'This is a test post',

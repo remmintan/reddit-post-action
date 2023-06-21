@@ -4980,10 +4980,11 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 async function main() {
-    const appId = _actions_core__WEBPACK_IMPORTED_MODULE_1___default().getInput('appId');
-    const username = _actions_core__WEBPACK_IMPORTED_MODULE_1___default().getInput('username');
-    const password = _actions_core__WEBPACK_IMPORTED_MODULE_1___default().getInput('password');
-    const appSecret = _actions_core__WEBPACK_IMPORTED_MODULE_1___default().getInput('appSecret');
+    const appId = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('app-id', {required: true});
+    const appSecret = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('app-secret', {required: true});
+    const username = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('username', {required: true});
+    const password = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('password', {required: true});
+    
     const reddit = new (reddit__WEBPACK_IMPORTED_MODULE_2___default())({
         username,
         password,
@@ -4993,22 +4994,22 @@ async function main() {
     });
 
 
-    _actions_core__WEBPACK_IMPORTED_MODULE_1___default().info('Posting to Reddit...');
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('Posting to Reddit...');
     await reddit.post(
         '/api/submit',
         {
-            sr: 'u/Remmintan',
+            sr: 'u_Remmintan',
             kind: 'self',
             title: 'Hello World',
             text: 'This is a test post',
         }
     )
-    _actions_core__WEBPACK_IMPORTED_MODULE_1___default().info('Done!');
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('Done!');
 }
 
 main().catch((err) => {
     console.log(err);
-    _actions_core__WEBPACK_IMPORTED_MODULE_1___default().setFailed(err);
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed(err);
 });
 })();
 
