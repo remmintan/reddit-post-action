@@ -4,9 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build index.js -o dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.5",
+    "@vercel/ncc": "^0.36.1"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "reddit": "^1.2.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  }
 }
