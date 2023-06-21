@@ -20,14 +20,18 @@ async function main() {
     });
 
 
-    actions.info('Posting to Reddit...');
+    const text = postText.replace(/\\n/g, '\n').replace(/\\/g, '');
+    actions.info(`Title: ${postTitle}`);
+    actions.info(`Text: ${text}`);
+    actions.info('');
+    actions.info('Posting to Reddit...');    
     await reddit.post(
         '/api/submit',
         {
             sr: 'u_Remmintan',
             kind: 'self',
             title: postTitle,
-            text: postText,
+            text,
         }
     )
     actions.info('Done!');

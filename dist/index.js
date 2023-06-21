@@ -4997,14 +4997,18 @@ async function main() {
     });
 
 
-    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('Posting to Reddit...');
+    const text = postText.replace(/\\n/g, '\n').replace(/\\/g, '');
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info(`Title: ${postTitle}`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info(`Text: ${text}`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('');
+    _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('Posting to Reddit...');    
     await reddit.post(
         '/api/submit',
         {
             sr: 'u_Remmintan',
             kind: 'self',
             title: postTitle,
-            text: postText,
+            text,
         }
     )
     _actions_core__WEBPACK_IMPORTED_MODULE_1__.info('Done!');
