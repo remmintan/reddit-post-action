@@ -22,3 +22,6 @@ inputs:
   post-text:
     description: 'Text of the post'
     required: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
